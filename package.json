@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "rollup -w -c config/rollup.config.dev.js",
+    "build:dist": "rollup -c config/rollup.config.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/xz870603611/pdstoolsdk#readme",
   "dependencies": {
-    "rollup": "^2.8.2"
+    "rollup": "^2.8.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-uglify": "^6.0.4"
   }
 }
