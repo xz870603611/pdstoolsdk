@@ -1,16 +1,18 @@
-// import commonjs from 'rollup-plugin-commonjs';
-// import { uglify } from "rollup-plugin-uglify";
 module.exports = () => {
-    return {
+    return [{
         input: './src/index.js',
         output: {
             name: 'pdstoolsdk',
             file: './dist/index.js',
             format: 'umd'
-        },
-        // plugins: [
-        //     commonjs(),
-        //     uglify()
-        // ]
-    }
+        }
+    },
+        {
+            input: './src/index.js',
+            output: {
+                name: 'pdstoolsdk',
+                file: './dist/index_iife.js',
+                format: 'iife'
+            }
+        }]
 };

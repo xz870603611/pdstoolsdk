@@ -1,3 +1,4 @@
-setTimeout(() => {
-    console.log('aaa');
-}, 1000);
+import ToolString from './tool/JToolString';
+export {
+    ToolString as JToolString
+}

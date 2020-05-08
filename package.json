@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "rollup -w -c config/rollup.config.dev.js",
     "build:dist": "rollup -c config/rollup.config.prod.js",
-    "build:link": "rollup -c config/rollup.config.link.js",
+    "build:link": "rollup -w -c config/rollup.config.link.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
