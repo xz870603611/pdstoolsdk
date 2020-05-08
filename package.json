@@ -1,0 +1,23 @@
+{
+  "name": "pdstoolsdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rollup -w -c config/rollup.config.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xz870603611/pdstoolsdk.git"
+  },
+  "author": "Small peng <xz87060361@126.com> (http://github.com/Small-peng)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xz870603611/pdstoolsdk/issues"
+  },
+  "homepage": "https://github.com/xz870603611/pdstoolsdk#readme",
+  "dependencies": {
+    "rollup": "^2.8.2"
+  }
+}
