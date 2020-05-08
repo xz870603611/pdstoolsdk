@@ -2,10 +2,11 @@
   "name": "pdstoolsdk",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "dev": "rollup -w -c config/rollup.config.dev.js",
     "build:dist": "rollup -c config/rollup.config.prod.js",
+    "build:link": "rollup -c config/rollup.config.link.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
