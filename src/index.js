@@ -1,4 +1,4 @@
-import ToolString from './tool/JToolString';
+import StringTool from './tool/StringTool';
 export {
-    ToolString as JToolString
+    StringTool
 }

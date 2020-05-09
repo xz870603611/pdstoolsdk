@@ -1,3 +1,3 @@
-import JToolString from "../src/tool/JToolString";
+import StringTool from "../src/tool/StringTool";
 
-console.log(JToolString.isMobile(15295159905));
+console.log(StringTool.isMobile(15295159905));

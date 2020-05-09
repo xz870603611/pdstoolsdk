@@ -22,6 +22,7 @@
   "dependencies": {
     "rollup": "^2.8.2",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-uglify": "^6.0.4"
   }
 }
