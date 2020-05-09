@@ -1,1 +1,1 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.StringTool=class{static isMobile(e){return/^1[1234567890]\d{9}$/.test(e)}};
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t((e=e||self).pdstoolsdk={})}(this,(function(e){"use strict";e.StringTool=class{static isMobile(e){return/^1[1234567890]\d{9}$/.test(e)}},Object.defineProperty(e,"__esModule",{value:!0})}));

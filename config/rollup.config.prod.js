@@ -8,7 +8,7 @@ module.exports = () => {
             output: {
                 name: 'pdstoolsdk',
                 file: './dist/index.js',
-                format: 'cjs'
+                format: 'umd'
             },
             plugins: [
                 commonjs(),
