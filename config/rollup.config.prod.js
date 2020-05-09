@@ -11,6 +11,8 @@ module.exports = () => {
                 format: 'umd'
             },
             plugins: [
+                commonjs(),
+                json(),
                 terser()
             ]
         },
