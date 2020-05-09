@@ -1,6 +1,6 @@
 import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
-import {uglify} from "rollup-plugin-uglify";
+import {terser} from 'rollup-plugin-terser';
 module.exports = () => {
     return [
         {
@@ -11,7 +11,7 @@ module.exports = () => {
                 format: 'umd'
             },
             plugins: [
-                uglify()
+                terser()
             ]
         },
         {
@@ -24,7 +24,7 @@ module.exports = () => {
             plugins: [
                 commonjs(),
                 json(),
-                uglify()
+                terser()
             ]
         }
     ]
