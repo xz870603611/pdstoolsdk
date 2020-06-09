@@ -30,11 +30,12 @@
         /*
         校验是否为手机号码
         @param mobile 手机号码
-        @returns 结果 Booleans
+        @return 结果 Booleans
         */
         static isMobile(mobile) {
             return (/^1[1234567890]\d{9}$/.test(mobile));
         }
+
     }
 
     class UrlTool {
