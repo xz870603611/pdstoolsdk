@@ -1,9 +1,9 @@
 /*
 Created by small peng on 2020/05/09
 */
+import ConsoleTool from './ConsoleTool';
 
 /*字符串工具类*/
-
 class StringTool {
     /*
     校验是否为手机号码
@@ -33,7 +33,7 @@ class StringTool {
     @param {ang} value 任何类型
     @returns {boolean} 结果*/
     static isEmpty(value) {
-        return typeof value === 'object' && value!== null ? !(Object.keys(value).length) : !value;
+        return typeof value === 'object' && value !== null ? !(Object.keys(value).length) : !value;
     }
 
     /*校验是否为验证码
@@ -52,25 +52,130 @@ class StringTool {
      默认：数字，字母，下划线
     @returns {boolean} 结果
     */
-    static isPassWord(password, type) {
+    static isPassword(password, type) {
         switch (type) {
-            case 1: return (/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&*]+$)(?![\d!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/).test(password);
-            case 2: return (/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/).test(password);
-            case 3: return (/^(?:\d+|[a-zA-Z]+|[!@#$%^&*]+)$/).test(password);
-            default: return (/^[0-9A-Za-z_]{6,}$/).test(password)
+            case 1:
+                return (/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&*]+$)(?![\d!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/).test(password);
+            case 2:
+                return (/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/).test(password);
+            case 3:
+                return (/^(?:\d+|[a-zA-Z]+|[!@#$%^&*]+)$/).test(password);
+            default:
+                return (/^[0-9A-Za-z_]{6,}$/).test(password)
         }
     }
 
     /*通过asc码得到0-9 A-Z a-z的数值
-    @params {string} ascChar
-    @returns {number} 结果*/
+    @param {string} ascChar
+    @returns {number} 结果 A=0 B=1*/
     static numberFormASC(ascChar) {
         let asc = ascChar.charCodeAt(0);
-        switch (asc) {
-            case (asc >= 48 && asc <= 57): return asc - 48;
-            case (asc >= 65 && asc <= 90): return asc - 64;
-            case (asc >= 97 && asc <= 122): return asc - 97;
-            default: asc;
+        if (asc >= 48 && asc <= 57) {
+            return asc - 48;
+        } else if (asc >= 65 && asc <= 90) {
+            return asc - 65;
+        } else if (asc >= 97 && asc <= 122) {
+            return asc - 97;
+        }
+        return asc;
+    }
+
+    /*清除所有空格
+    @param {string} string
+    @returns {string} 结果
+    */
+    static deleteSpace(string) {
+        return string.replace(/\s+/g, '');
+    }
+
+    /*清除任意字符
+    @param {string} content
+    @param {string} deleteString
+    @returns {string} 结果
+    */
+    static deleteString(content, deleteString) {
+        if (!deleteString) {
+            return content;
+        }
+        return content.replace(new RegExp("\\" + deleteString + "+", "g"), '');
+    }
+
+    /*获取html标签中的内容
+    @param {string} label
+    @returns {string} 结果
+    */
+    static getHtmlContent(label) {
+        return label.replace(/<[^>]+>/g, '');
+    }
+
+    /*获取img引入地址
+    @param {string} string
+    @return {array} 结果
+    */
+    static getImgAddress(string) {
+        let stringList = string.match(/<img.*?(?:>|\/>)/gi);
+        let stringSrcList = [];
+        if (!stringList) {
+            return stringSrcList;
+        }
+        stringList.forEach(item => {
+            let src = item.match(/src=[\'\"]?([^\'\"]*)[\'\"]?/i);
+            //获取图片地址
+            if (src[1]) {
+                stringSrcList.push(src[1]);
+            }
+        })
+        return stringSrcList;
+    }
+
+    /*获取双标签及内容
+    @param {string} html
+    @param {string} label
+    @return {array} 结果
+    PS：只能获取一级目录相同标签包不行~
+    */
+    static getDoubleHtmlLabel(html, label) {
+        let htmlList = html.match(
+            new RegExp(`<${label}.*?(?:${label}>|${label}\/>)`, 'gi')
+        );
+        return htmlList ? htmlList : [];
+    }
+
+    /*获取单标签及内容
+    @param {string} html
+    @param {string} labelS
+    @return {array} 结果
+    */
+    static getSingleHtmlLabel(html, label) {
+        let htmlList = html.match(
+            new RegExp(`(<${label}.*?(?:>|\/>)`, 'gi')
+        );
+        return htmlList ? htmlList : [];
+    }
+
+    /*json字符串转成json对象
+    @param {string} string
+    @returns {object} 结果
+    */
+    static parse(string) {
+        try {
+            return JSON.parse(string);
+        } catch (e) {
+            ConsoleTool.error(`您使用的参数不是一个json字符，您的参数为：${string}`);
+            return [];
+        }
+    }
+
+    /*字符串转数组
+    @param {string} string
+    @param {array} splitString
+    */
+    static split(string, splitString) {
+        try {
+            return string.split(splitString);
+        } catch (e) {
+            ConsoleTool.error(`您使用的参数不是有效的字符串，您的参数为：${string}`);
+            return [];
         }
     }
 }
