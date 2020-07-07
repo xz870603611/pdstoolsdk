@@ -61,7 +61,18 @@ class StringTool {
         }
     }
 
-
+    /*通过asc码得到0-9 A-Z a-z的数值
+    @params {string} ascChar
+    @returns {number} 结果*/
+    static numberFormASC(ascChar) {
+        let asc = ascChar.charCodeAt(0);
+        switch (asc) {
+            case (asc >= 48 && asc <= 57): return asc - 48;
+            case (asc >= 65 && asc <= 90): return asc - 64;
+            case (asc >= 97 && asc <= 122): return asc - 97;
+            default: asc;
+        }
+    }
 }
 
 export default StringTool;

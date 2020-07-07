@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b622ad93-c54c-448a-960b-3c53c1b56384" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tool/StringTool.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tool/StringTool.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -100,6 +103,7 @@
       <workItem from="1593588308642" duration="1803000" />
       <workItem from="1593742443732" duration="6591000" />
       <workItem from="1594018160965" duration="7954000" />
+      <workItem from="1594093002132" duration="1360000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1588927312285</created>
