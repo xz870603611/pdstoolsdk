@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b622ad93-c54c-448a-960b-3c53c1b56384" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tool/StringTool.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tool/StringTool.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +103,7 @@
       <workItem from="1593588308642" duration="1803000" />
       <workItem from="1593742443732" duration="6591000" />
       <workItem from="1594018160965" duration="7954000" />
-      <workItem from="1594093002132" duration="1360000" />
+      <workItem from="1594093002132" duration="16472000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1588927312285</created>
@@ -245,7 +245,21 @@
       <option name="project" value="LOCAL" />
       <updated>1594030647121</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="增加工具方法名">
+      <created>1594094389540</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1594094389540</updated>
+    </task>
+    <task id="LOCAL-00022" summary="增加工具类，字符串方法开发">
+      <created>1594117372377</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1594117372377</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,17 +276,18 @@
     <MESSAGE value="发布&quot;version&quot;: &quot;1.0.5&quot;," />
     <MESSAGE value="测试发布" />
     <MESSAGE value="增加工具方法名" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加工具方法名" />
+    <MESSAGE value="增加工具类，字符串方法开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加工具类，字符串方法开发" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593505024937">
       <screen x="0" y="23" width="1920" height="989" />
     </state>
     <state x="451" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.989@0.23.1920.989" timestamp="1593505024937" />
-    <state x="734" y="119" key="CommitChangelistDialog2" timestamp="1594030646837">
+    <state x="734" y="119" key="CommitChangelistDialog2" timestamp="1594117372135">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state x="734" y="119" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1594030646837" />
+    <state x="734" y="119" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1594117372135" />
     <state x="734" y="120" key="CommitChangelistDialog2/0.23.1920.989@0.23.1920.989" timestamp="1593505129048" />
     <state width="1223" height="272" key="GridCell.Tab.0.bottom" timestamp="1594033541224">
       <screen x="0" y="23" width="1920" height="977" />
@@ -294,10 +309,14 @@
     </state>
     <state width="1223" height="272" key="GridCell.Tab.0.right/0.23.1920.977@0.23.1920.977" timestamp="1594033541224" />
     <state width="1379" height="272" key="GridCell.Tab.0.right/0.23.1920.989@0.23.1920.989" timestamp="1593509325664" />
-    <state x="727" y="268" key="Vcs.Push.Dialog.v2" timestamp="1594030648879">
+    <state x="727" y="268" key="Vcs.Push.Dialog.v2" timestamp="1594117373646">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state x="727" y="268" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1594030648879" />
+    <state x="727" y="268" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1594117373646" />
     <state x="727" y="271" key="Vcs.Push.Dialog.v2/0.23.1920.989@0.23.1920.989" timestamp="1593505131297" />
+    <state x="1046" y="324" width="670" height="676" key="search.everywhere.popup" timestamp="1594113376427">
+      <screen x="0" y="23" width="1920" height="977" />
+    </state>
+    <state x="1046" y="324" width="670" height="676" key="search.everywhere.popup/0.23.1920.977@0.23.1920.977" timestamp="1594113376427" />
   </component>
 </project>
