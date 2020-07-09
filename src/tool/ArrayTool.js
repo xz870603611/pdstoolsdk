@@ -5,7 +5,7 @@ class ArrayTool {
     @param {array} value
     @param {string} 结果
     */
-    static join(value, joinString) {
+    static arrayJoin(value, joinString) {
         try {
             return value.join(joinString);
         } catch (e) {

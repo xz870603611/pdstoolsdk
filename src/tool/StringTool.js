@@ -66,7 +66,7 @@ class StringTool {
     }
 
     /*通过asc码得到0-9 A-Z a-z的数值
-    @param {string} ascChar
+    @param {string} ascChar 字符串
     @returns {number} 结果 A=0 B=1*/
     static numberFormASC(ascChar) {
         let asc = ascChar.charCodeAt(0);
@@ -81,7 +81,7 @@ class StringTool {
     }
 
     /*清除所有空格
-    @param {string} string
+    @param {string} string 字符串
     @returns {string} 结果
     */
     static deleteSpace(string) {
@@ -89,8 +89,8 @@ class StringTool {
     }
 
     /*清除任意字符
-    @param {string} content
-    @param {string} deleteString
+    @param {string} content 字符串
+    @param {string} deleteString 要删除的字符
     @returns {string} 结果
     */
     static deleteString(content, deleteString) {
@@ -101,7 +101,7 @@ class StringTool {
     }
 
     /*获取html标签中的内容
-    @param {string} label
+    @param {string} label html字符串
     @returns {string} 结果
     */
     static getHtmlContent(label) {
@@ -109,7 +109,7 @@ class StringTool {
     }
 
     /*获取img引入地址
-    @param {string} string
+    @param {string} string 字符串
     @return {array} 结果
     */
     static getImgAddress(string) {
@@ -129,8 +129,8 @@ class StringTool {
     }
 
     /*获取双标签及内容
-    @param {string} html
-    @param {string} label
+    @param {string} html 字符串
+    @param {string} label 要获取的双标签名
     @return {array} 结果
     PS：只能获取一级目录相同标签包不行~
     */
@@ -142,8 +142,8 @@ class StringTool {
     }
 
     /*获取单标签及内容
-    @param {string} html
-    @param {string} labelS
+    @param {string} html 字符串
+    @param {string} label 要获取的单标签名
     @return {array} 结果
     */
     static getSingleHtmlLabel(html, label) {
@@ -154,10 +154,10 @@ class StringTool {
     }
 
     /*json字符串转成json对象
-    @param {string} string
+    @param {string} string josn字符串
     @returns {object} 结果
     */
-    static parse(string) {
+    static stringParse(string) {
         try {
             return JSON.parse(string);
         } catch (e) {
@@ -167,10 +167,10 @@ class StringTool {
     }
 
     /*字符串转数组
-    @param {string} string
+    @param {string} string 字符串
     @param {array} splitString
     */
-    static split(string, splitString) {
+    static stringSplit(string, splitString) {
         try {
             return string.split(splitString);
         } catch (e) {

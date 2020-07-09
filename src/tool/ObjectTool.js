@@ -5,7 +5,7 @@ class ObjectTool {
     @param {object} string
     @returns {string} 结果
     */
-    static stringify(obj) {
+    static objectStringify(obj) {
         try {
             return JSON.stringify(obj);
         } catch (e) {

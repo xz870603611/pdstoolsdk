@@ -15,7 +15,7 @@ var pdstoolsdk = (function (exports) {
         @param {array} value
         @param {string} 结果
         */
-        static join(value, joinString) {
+        static arrayJoin(value, joinString) {
             try {
                 return value.join(joinString);
             } catch (e) {
@@ -29,8 +29,41 @@ var pdstoolsdk = (function (exports) {
 
     }
 
-    class NumberTool {
+    /*
+    Created by small peng on 2020/07/09
+    */
 
+    /*数字工具类*/
+    class NumberTool {
+        /*小数保留位数
+        @param {number} number 数字
+        @param {number} length 保留位数
+        @returns {string} 结果
+        */
+        static fixDigits(number, length) {
+            return (+number).toFixed(length);
+        }
+
+        /*单位转换
+        @param {number} number 数字
+        @param {number} length 去整长度
+        @returns {number} 结果
+        */
+        static deleteNumber(number, length) {
+            return +number / length;
+        }
+
+        /*分转元，保留2位小数
+        @param {number} number 数字
+        @param {boolean} type 是否保留2位小数
+        @returns {string number} 结果
+        */
+        static formatPrice(number, type) {
+            if (type) {
+                return NumberTool.fixDigits(NumberTool.deleteNumber(number, 100), 2);
+            }
+            return NumberTool.deleteNumber(number, 100);
+        }
     }
 
     class ObjectTool {
@@ -38,7 +71,7 @@ var pdstoolsdk = (function (exports) {
         @param {object} string
         @returns {string} 结果
         */
-        static stringify(obj) {
+        static objectStringify(obj) {
             try {
                 return JSON.stringify(obj);
             } catch (e) {
@@ -115,7 +148,7 @@ var pdstoolsdk = (function (exports) {
         }
 
         /*通过asc码得到0-9 A-Z a-z的数值
-        @param {string} ascChar
+        @param {string} ascChar 字符串
         @returns {number} 结果 A=0 B=1*/
         static numberFormASC(ascChar) {
             let asc = ascChar.charCodeAt(0);
@@ -130,7 +163,7 @@ var pdstoolsdk = (function (exports) {
         }
 
         /*清除所有空格
-        @param {string} string
+        @param {string} string 字符串
         @returns {string} 结果
         */
         static deleteSpace(string) {
@@ -138,8 +171,8 @@ var pdstoolsdk = (function (exports) {
         }
 
         /*清除任意字符
-        @param {string} content
-        @param {string} deleteString
+        @param {string} content 字符串
+        @param {string} deleteString 要删除的字符
         @returns {string} 结果
         */
         static deleteString(content, deleteString) {
@@ -150,7 +183,7 @@ var pdstoolsdk = (function (exports) {
         }
 
         /*获取html标签中的内容
-        @param {string} label
+        @param {string} label html字符串
         @returns {string} 结果
         */
         static getHtmlContent(label) {
@@ -158,7 +191,7 @@ var pdstoolsdk = (function (exports) {
         }
 
         /*获取img引入地址
-        @param {string} string
+        @param {string} string 字符串
         @return {array} 结果
         */
         static getImgAddress(string) {
@@ -178,8 +211,8 @@ var pdstoolsdk = (function (exports) {
         }
 
         /*获取双标签及内容
-        @param {string} html
-        @param {string} label
+        @param {string} html 字符串
+        @param {string} label 要获取的双标签名
         @return {array} 结果
         PS：只能获取一级目录相同标签包不行~
         */
@@ -191,8 +224,8 @@ var pdstoolsdk = (function (exports) {
         }
 
         /*获取单标签及内容
-        @param {string} html
-        @param {string} labelS
+        @param {string} html 字符串
+        @param {string} label 要获取的单标签名
         @return {array} 结果
         */
         static getSingleHtmlLabel(html, label) {
@@ -203,10 +236,10 @@ var pdstoolsdk = (function (exports) {
         }
 
         /*json字符串转成json对象
-        @param {string} string
+        @param {string} string josn字符串
         @returns {object} 结果
         */
-        static parse(string) {
+        static stringParse(string) {
             try {
                 return JSON.parse(string);
             } catch (e) {
@@ -216,10 +249,10 @@ var pdstoolsdk = (function (exports) {
         }
 
         /*字符串转数组
-        @param {string} string
+        @param {string} string 字符串
         @param {array} splitString
         */
-        static split(string, splitString) {
+        static stringSplit(string, splitString) {
             try {
                 return string.split(splitString);
             } catch (e) {
