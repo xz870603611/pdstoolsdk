@@ -23,6 +23,66 @@ var pdstoolsdk = (function (exports) {
                 return '';
             }
         }
+
+        /*数组排序方法
+        @param AscSort 升序
+        @param DescSort 降序*/
+        //升序方法
+        static AscSort(a, b) {
+            return a - b;
+        }
+        //降序方法
+        static DescSort(a, b) {
+            return b - a;
+        }
+
+        /*数组排序
+        @param {array} array 数组
+        @param {string} type 排序方式
+        @returns {array} 结果
+        */
+        static arraySort(array, type) {
+            if (type === 'desc') {
+                return array.sort(ArrayTool.DescSort);
+            }
+            return array.sort(ArrayTool.AscSort);
+        }
+
+        /*按对象参数排序方法
+        @param CompareAscSort  升序
+        @param CompareDescSort 降序*/
+        // 对象升序
+        static CompareAscSort(property) {
+            return function(a, b) {
+                let value1 = a[property];
+                let value2 = b[property];
+                return value1 - value2;
+            }
+        }
+        // 对象降序
+        static CompareDescSort(property) {
+            return function (a, b) {
+                let value1 = a[property];
+                let value2 = b[property];
+                return value2 - value1;
+            }
+        }
+
+        /*按对象参数排序
+        @param {array} array 数组
+        @param {string} type 排序方式
+        @param {string} key 排序字段
+        @returns {array} 结果*/
+        static objectSort(value, key, type) {
+            if (!key) {
+                ConsoleTool.error(`请填写排序字段key`);
+                return value;
+            }
+            if (type === 'desc') {
+                return value.sort(ArrayTool.CompareDescSort(key));
+            }
+            return value.sort(ArrayTool.CompareAscSort(key));
+        }
     }
 
     class DateTool {
@@ -32,7 +92,6 @@ var pdstoolsdk = (function (exports) {
     /*
     Created by small peng on 2020/07/09
     */
-
     /*数字工具类*/
     class NumberTool {
         /*小数保留位数
@@ -44,15 +103,24 @@ var pdstoolsdk = (function (exports) {
             return (+number).toFixed(length);
         }
 
-        /*单位转换
+        /*单位转换增加
         @param {number} number 数字
-        @param {number} length 去整长度
+        @param {number} length 去除长度
         @returns {number} 结果
         */
-        static deleteNumber(number, length) {
-            return +number / length;
+        static formatUnitIncrease(number, length) {
+            return +number * length;
         }
 
+        /*单位转换删除
+        @param {number} number 数字
+        @param {number} length 增加长度
+        @returns {number} 结果
+        */
+        static formatUnitDelete(number, length) {
+            return  1 / length * +number;
+        }
+        
         /*分转元，保留2位小数
         @param {number} number 数字
         @param {boolean} type 是否保留2位小数
@@ -60,9 +128,9 @@ var pdstoolsdk = (function (exports) {
         */
         static formatPrice(number, type) {
             if (type) {
-                return NumberTool.fixDigits(NumberTool.deleteNumber(number, 100), 2);
+                return NumberTool.fixDigits(NumberTool.formatUnitDelete(number, 100), 2);
             }
-            return NumberTool.deleteNumber(number, 100);
+            return NumberTool.formatUnitDelete(number, 100);
         }
     }
 
