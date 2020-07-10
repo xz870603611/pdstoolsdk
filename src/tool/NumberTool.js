@@ -39,8 +39,9 @@ class NumberTool {
     static formatPrice(number, type) {
         if (type) {
             return NumberTool.fixDigits(NumberTool.formatUnitDelete(number, 100), 2);
+        } else {
+            return NumberTool.formatUnitDelete(number, 100);
         }
-        return NumberTool.formatUnitDelete(number, 100);
     }
 }
 

@@ -60,7 +60,7 @@ class ArrayTool {
 
     /*按对象参数排序
     @param {array} array 数组
-    @param {string} type 排序方式
+    @param {string} type 排序方式 升序 asc 降序 desc
     @param {string} key 排序字段
     @returns {array} 结果*/
     static objectSort(value, key, type) {
@@ -71,7 +71,10 @@ class ArrayTool {
         if (type === 'desc') {
             return value.sort(ArrayTool.CompareDescSort(key));
         }
-        return value.sort(ArrayTool.CompareAscSort(key));
+        if (type === 'asc') {
+            return value.sort(ArrayTool.CompareAscSort(key));
+        }
+        return value;
     }
 }
 export default ArrayTool;

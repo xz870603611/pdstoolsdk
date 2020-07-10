@@ -171,9 +171,9 @@ class StringTool {
     @param {array} splitString
     */
     static stringSplit(string, splitString) {
-        try {
+        if (typeof string === 'string') {
             return string.split(splitString);
-        } catch (e) {
+        } else {
             ConsoleTool.error(`您使用的参数不是有效的字符串，您的参数为：${string}`);
             return [];
         }

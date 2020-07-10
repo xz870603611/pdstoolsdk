@@ -70,7 +70,7 @@ var pdstoolsdk = (function (exports) {
 
         /*按对象参数排序
         @param {array} array 数组
-        @param {string} type 排序方式
+        @param {string} type 排序方式 升序 asc 降序 desc
         @param {string} key 排序字段
         @returns {array} 结果*/
         static objectSort(value, key, type) {
@@ -81,7 +81,10 @@ var pdstoolsdk = (function (exports) {
             if (type === 'desc') {
                 return value.sort(ArrayTool.CompareDescSort(key));
             }
-            return value.sort(ArrayTool.CompareAscSort(key));
+            if (type === 'asc') {
+                return value.sort(ArrayTool.CompareAscSort(key));
+            }
+            return value;
         }
     }
 
@@ -129,8 +132,9 @@ var pdstoolsdk = (function (exports) {
         static formatPrice(number, type) {
             if (type) {
                 return NumberTool.fixDigits(NumberTool.formatUnitDelete(number, 100), 2);
+            } else {
+                return NumberTool.formatUnitDelete(number, 100);
             }
-            return NumberTool.formatUnitDelete(number, 100);
         }
     }
 
@@ -147,6 +151,51 @@ var pdstoolsdk = (function (exports) {
                 return '';
             }
         }
+
+        /*删除对象参数为空的值 null undefined '' [] {}
+        @param {object} obj 遍历的对象值
+        @returns {object} 结果*/
+        static deleteEmptyProperty(obj) {
+            let object = obj;
+            for (let i in object) {
+                let value = object[i];
+                if (!value) {
+                    delete object[i];
+                } else if ({}.toString.call(value) === '[object Array]') {
+                    if (value.length === 0) {
+                        delete object[i];
+                    }
+                } else if ({}.toString.call(value) === '[object Object]') {
+                    if (Object.keys(value).length === 0) {
+                        delete object[i];
+                        continue;
+                    }
+                    this.deleteEmptyProperty(value);
+                }
+            }
+            return object;
+        }
+
+        /*按对象参数按ascii码排序(升序)
+        @param {object} obj 遍历的对象值
+        @returns {object} 结果*/
+        static sortAscii(obj) {
+            let n = [];
+            let arr = {};
+            for (let k in obj) n.push(k);
+            n.sort();
+            for (let i = 0; i < n.length; i++) {
+                let v = obj[n[i]];
+                if (v) {
+                    if ({}.toString.call(v) === '[object Object]') {
+                        v = this.sortAscii(v);
+                    }
+                }
+                arr[n[i]] = v;
+            }
+            return arr;
+        }
+
     }
 
     /*
@@ -321,9 +370,9 @@ var pdstoolsdk = (function (exports) {
         @param {array} splitString
         */
         static stringSplit(string, splitString) {
-            try {
+            if (typeof string === 'string') {
                 return string.split(splitString);
-            } catch (e) {
+            } else {
                 ConsoleTool.error(`您使用的参数不是有效的字符串，您的参数为：${string}`);
                 return [];
             }
