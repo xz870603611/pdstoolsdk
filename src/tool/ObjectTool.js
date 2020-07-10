@@ -57,7 +57,6 @@ class ObjectTool {
         }
         return arr;
     }
-
 }
 
 export default ObjectTool;
