@@ -195,6 +195,34 @@ var pdstoolsdk = (function (exports) {
             }
             return arr;
         }
+
+        // 对象转url参数
+        // @param {object} obj 参数
+        // @returns {string} 结果
+        static jsonUrl(o) {
+            let n = [];
+            let str = '';
+            for (let k in o) n.push(k);
+            n.sort();
+            for (let i = 0; i < n.length; i++) {
+                let v = o[n[i]];
+                if (v) {
+                    if ({}.toString.call(v) === '[object Object]') {
+                        v = this.jsonUrl(v);
+                    } else if ({}.toString.call(v) === '[object Array]') {
+                        if (v.length === 0) {
+                            continue;
+                        }
+                        v = JSON.stringify(v).replace(/:/g, '=');
+                        console.log(v);
+                    }
+                }
+                if (v !== null && v !== '' && v !== undefined) {
+                    str += '&' + n[i] + '=' + v;
+                }
+            }
+            return str.slice(1);
+        }
     }
 
     /*
