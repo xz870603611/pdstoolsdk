@@ -21,7 +21,6 @@
   "homepage": "https://github.com/xz870603611/pdstoolsdk#readme",
   "dependencies": {
     "jbzfilmsdk": "^1.2.1-beta1",
-    "pdstoolsdk": "^1.0.7",
     "rollup": "^2.8.2",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",

@@ -217,19 +217,6 @@ path-parse@^1.0.6:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
 
-pdstoolsdk@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.npm.taobao.org/pdstoolsdk/download/pdstoolsdk-1.0.7.tgz#e9bea874106d83274823f0096558f0e8ddcb2043"
-  integrity sha1-6b6odBBtgydII/AJZVjw6N3LIEM=
-  dependencies:
-    jbzfilmsdk "^1.2.1-beta1"
-    rollup "^2.8.2"
-    rollup-plugin-commonjs "^10.1.0"
-    rollup-plugin-json "^4.0.0"
-    rollup-plugin-terser "^5.3.0"
-    rollup-plugin-uglify "^6.0.4"
-    user "0.0.0"
-
 regenerator-runtime@^0.13.4:
   version "0.13.5"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.5.tgz#d878a1d094b4306d10b9096484b33ebd55e26697"
