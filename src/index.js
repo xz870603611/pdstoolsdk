@@ -5,6 +5,8 @@ import ObjectTool from './tool/ObjectTool';
 import StringTool from './tool/StringTool';
 import UrlTool from './tool/UrlTool';
 import ConsoleTool from './tool/ConsoleTool';
+import CacheTool from './tool/CacheTool';
+import DataTool from './tool/DataTool';
 export {
     ArrayTool,
     NumberTool,
@@ -12,5 +14,7 @@ export {
     DateTool,
     StringTool,
     UrlTool,
-    ConsoleTool
+    ConsoleTool,
+    CacheTool,
+    DataTool
 }

@@ -1,5 +1,4 @@
-import ConsoleTool from "./ConsoleTool";
-
+import ConsoleTool from './ConsoleTool';
 class ArrayTool {
     /*数组转字符串
     @param {array} value
@@ -75,6 +74,27 @@ class ArrayTool {
             return value.sort(ArrayTool.CompareAscSort(key));
         }
         return value;
+    }
+
+    /*向数组中增加序号
+    @param {object} param 参数
+    @param {array} data 内容
+    @param {number} page 页码
+    @param {string} key 新增加的key值
+    @returns {array} 结果*/
+    static addkey(params) {
+        let data = [];
+        if (params.data.length > 10) {
+            params.data = params.data.slice((params.page - 1) * 10, 10 * params.page);
+        }
+        for (let i = 0; i < params.data.length; i++) {
+            params.key = params.key ? params.key : 'key';
+            data.push({
+                [params.key]: i + 1 + (params.page - 1) * 10,
+                ...params.data[i]
+            })
+        }
+        return data;
     }
 }
 export default ArrayTool;

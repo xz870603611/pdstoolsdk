@@ -86,6 +86,27 @@ var pdstoolsdk = (function (exports) {
             }
             return value;
         }
+
+        /*向数组中增加序号
+        @param {object} param 参数
+        @param {array} data 内容
+        @param {number} page 页码
+        @param {string} key 新增加的key值
+        @returns {array} 结果*/
+        static addkey(params) {
+            let data = [];
+            if (params.data.length > 10) {
+                params.data = params.data.slice((params.page - 1) * 10, 10 * params.page);
+            }
+            for (let i = 0; i < params.data.length; i++) {
+                params.key = params.key ? params.key : 'key';
+                data.push({
+                    [params.key]: i + 1 + (params.page - 1) * 10,
+                    ...params.data[i]
+                });
+            }
+            return data;
+        }
     }
 
     class DateTool {
@@ -410,8 +431,84 @@ var pdstoolsdk = (function (exports) {
 
     }
 
+    /*
+    Created by small peng on 2020/07/13
+    */
+    // 返回参数工具类
+    class DataTool {
+        /*返回参数
+        @param {object} 返回参数
+        @param errorCode 状态码
+        @param data 数据
+        @param message 提示
+        @returns {object} 结果*/
+        static formatData(params) {
+            return {
+                errorCode: 0,
+                data: params.data,
+                message: params.message ? params.message : '请求成功',
+                ...params
+            };
+        }
+    }
+
+    /*
+    Created by small peng on 2020/07/13
+    */
+    // 缓存工具类
+    class CacheTool {
+        /*设置缓存内容
+        @param {string} key 储存的缓存名
+        @param {any} value 储存的缓存内容
+        @returns 结果*/
+        static setCache(key, value) {
+            if (key) {
+                window.sessionStorage.setItem(`${key}`, JSON.stringify(value));
+                return DataTool.formatData({
+                    message: '设置成功',
+                    data: {
+                        key: key,
+                        value: value
+                    }
+                })
+            }
+            ConsoleTool.error('设置失败，请检测是否缺少设置参数');
+            return null;
+        }
+
+        /*获取缓存内容
+        @param {string} key 获取的参数名
+        @return {any}*/
+        static getCache(key) {
+            if (window.sessionStorage.getItem(`${key}`)) {
+                return JSON.parse(window.sessionStorage.getItem(`${key}`));
+            }
+            ConsoleTool.error(`获取失败，请检测是否缺少查找内容参数`);
+            return null;
+        }
+
+        /*删除缓存内容
+        @param {string} key 删除的参数名
+        @returns 结果*/
+        static delCache(key) {
+            if (key) {
+                window.sessionStorage.removeItem(`${key}`);
+                return DataTool.formatData({
+                    message: '删除成功',
+                    data: {
+                        key: key
+                    }
+                })
+            }
+            ConsoleTool.error(`删除失败，请检测是否缺少删除内容参数`);
+            return null;
+        }
+    }
+
     exports.ArrayTool = ArrayTool;
+    exports.CacheTool = CacheTool;
     exports.ConsoleTool = ConsoleTool;
+    exports.DataTool = DataTool;
     exports.DateTool = DateTool;
     exports.NumberTool = NumberTool;
     exports.ObjectTool = ObjectTool;
