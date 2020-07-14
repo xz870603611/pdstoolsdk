@@ -2,7 +2,7 @@
 Created by small peng on 2020/07/13
 */
 // url工具类
-import UrlPattern from "url-pattern";
+import UrlPattern from 'url-pattern';
 
 class UrlTool {
     /*合成完整url
@@ -49,15 +49,51 @@ class UrlTool {
             } catch (e) {
                 return null;
             }
-            console.log('urlObj')
-            console.log(urlObj)
             if (urlObj) {
+                const _getKV = (obj) => {
+                  let queryMap = {};
+                  if (obj) {
+                      for (let key of obj.split('&')) {
+                          let key_l = key.split('=');
+                          if (key_l.length < 2) {
+                              continue;
+                          }
+                          queryMap[key_l[0]] = key_l[1];
+                      }
+                  }
+                  return queryMap;
+                };
                 let query = new UrlPattern(/^\??(.*)$/, ['query']).match(urlObj.search).query;
-                console.log(query)
+                let queryMap = _getKV(query);
+                let hashObj = new UrlPattern(/^#?(([\w-]*(\/)?)+)?((\?)+(.*))?$/,
+                    ['hashpath', '', '', 'hashsearch', '', '_hashsearch']).match(urlObj.hash);
+                let hashMap = _getKV(hashObj._hashsearch);
+                let data ={
+                    host: urlObj.host,
+                    href: urlObj.href,
+                    pathname: urlObj.pathname,
+                    protocol: urlObj.protocol,
+                    query: queryMap,
+                    hashpath: hashObj.hashpath,
+                    hashquery: hashMap
+                }
+                if (options.complete) {
+                    data = {
+                        ...data,
+                        origin: urlObj.origin,
+                        hostname: urlObj.hostname,
+                        port: urlObj.port,
+                        search: urlObj.search,
+                        username: urlObj.username,
+                        password: urlObj.password,
+                        hashsearch: urlObj.hashsearch,
+                        hash: urlObj.hash
+                    }
+                }
+                return data;
             }
         } catch (e) {
-            console.log(e);
-            return null;
+            throw e;
         }
     }
 }
