@@ -5,7 +5,7 @@ import babel from 'rollup-plugin-babel'
 module.exports = () => {
     return [
         {
-            input: './src/index.js',
+            input: './src/main.ts',
             output: {
                 name: 'pdstoolsdk',
                 file: './dist/index.js',
@@ -22,7 +22,7 @@ module.exports = () => {
             ]
         },
         {
-            input: './src/index.js',
+            input: './src/main.ts',
             output: {
                 name: 'pdstoolsdk',
                 file: './dist/index_iife.js',
