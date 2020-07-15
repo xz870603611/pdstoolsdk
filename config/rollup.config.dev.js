@@ -1,6 +1,6 @@
 import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import babel from 'rollup-plugin-babel'
 module.exports = () => {
     return [
@@ -10,9 +10,6 @@ module.exports = () => {
                 name: 'pdstoolsdk',
                 file: './dist/index.js',
                 format: 'umd',
-                globals: {
-                    UrlPattern: 'url-pattern',
-                },
             },
             plugins: [
                 resolve(),
@@ -27,9 +24,6 @@ module.exports = () => {
                 name: 'pdstoolsdk',
                 file: './dist/index_iife.js',
                 format: 'iife',
-                globals: {
-                    UrlPattern: 'url-pattern',
-                },
             },
             plugins: [
                 resolve(),
