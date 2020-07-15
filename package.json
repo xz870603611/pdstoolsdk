@@ -19,13 +19,18 @@
     "url": "https://github.com/xz870603611/pdstoolsdk/issues"
   },
   "homepage": "https://github.com/xz870603611/pdstoolsdk#readme",
-  "dependencies": {
-    "jbzfilmsdk": "^1.2.1-beta1",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "core-js": "2",
     "rollup": "^2.8.2",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.3.0",
-    "rollup-plugin-uglify": "^6.0.4",
-    "user": "0.0.0"
+    "rollup-plugin-uglify": "^6.0.4"
   }
 }

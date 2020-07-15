@@ -4,6 +4,7 @@ Created by small peng on 2020/07/13
 // url工具类
 import UrlPattern from 'url-pattern';
 
+
 class UrlTool {
     /*合成完整url
     @param {object} value 内容
