@@ -2,6 +2,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
 import resolve from 'rollup-plugin-node-resolve';
 import {terser} from 'rollup-plugin-terser';
+import babel from 'rollup-plugin-babel'
 module.exports = () => {
     return [
         {
@@ -18,7 +19,8 @@ module.exports = () => {
                 resolve(),
                 commonjs(),
                 json(),
-                terser()
+                terser(),
+                babel()
             ]
         },
         {
@@ -35,7 +37,8 @@ module.exports = () => {
                 resolve(),
                 commonjs(),
                 json(),
-                terser()
+                terser(),
+                babel()
             ]
         }
     ]

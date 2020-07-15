@@ -20,8 +20,11 @@
   },
   "homepage": "https://github.com/xz870603611/pdstoolsdk#readme",
   "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "jbzfilmsdk": "^1.2.1-beta1",
     "rollup": "^2.8.2",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
