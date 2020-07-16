@@ -1,9 +1,10 @@
 import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import {terser} from 'rollup-plugin-terser';
 import babel from 'rollup-plugin-babel'
-import { uglify } from "rollup-plugin-uglify";
+import { uglify } from 'rollup-plugin-uglify';
+import typescript from 'rollup-plugin-typescript2';
 module.exports = () => {
     return [
         {
@@ -12,16 +13,15 @@ module.exports = () => {
                 name: 'pdstoolsdk',
                 file: './dist/index.js',
                 format: 'umd',
-                globals: {
-                    UrlPattern: 'url-pattern',
-                },
             },
             plugins: [
                 resolve(),
                 commonjs(),
                 json(),
+                babel(),
+                typescript({lib: ["es5", "es6", "dom"], target: "es5"}),
                 terser(),
-                babel()
+                uglify()
             ]
         },
         {
@@ -30,16 +30,14 @@ module.exports = () => {
                 name: 'pdstoolsdk',
                 file: './dist/index_iife.js',
                 format: 'iife',
-                globals: {
-                    UrlPattern: 'url-pattern',
-                },
             },
             plugins: [
                 resolve(),
                 commonjs(),
                 json(),
-                terser(),
                 babel(),
+                typescript({lib: ["es5", "es6", "dom"], target: "es5"}),
+                terser(),
                 uglify()
             ]
         }
