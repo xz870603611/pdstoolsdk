@@ -35,6 +35,5 @@
     "typescript": "^3.9.6",
     "url-pattern": "^1.0.3"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
