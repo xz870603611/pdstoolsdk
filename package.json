@@ -20,8 +20,6 @@
   },
   "homepage": "https://github.com/xz870603611/pdstoolsdk#readme",
   "dependencies": {
-  },
-  "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@rollup/plugin-node-resolve": "^8.4.0",
@@ -35,5 +33,7 @@
     "rollup-plugin-uglify": "^6.0.4",
     "typescript": "^3.9.6",
     "url-pattern": "^1.0.3"
+  },
+  "devDependencies": {
   }
 }
