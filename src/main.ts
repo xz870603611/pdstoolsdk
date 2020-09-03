@@ -7,6 +7,7 @@ import UrlTool from './tool/UrlTool';
 import ConsoleTool from './tool/ConsoleTool';
 import CacheTool from './tool/CacheTool';
 import DataTool from './tool/DataTool';
+import TypeOfTool from './tool/TypeOfTool';
 export {
     ArrayTool,
     NumberTool,
@@ -16,5 +17,6 @@ export {
     UrlTool,
     ConsoleTool,
     CacheTool,
-    DataTool
+    DataTool,
+    TypeOfTool
 }
